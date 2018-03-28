@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+      <title>My Web Page</title>
+      <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+      <style>
+
+        body{
+            font-family: 'Indie Flower', cursive;
+            font-size: 18;
+            text-align: center
+
+        }
+
+        p {
+          padding: 10px 5px 10px 5px;
+        }
+
+        .float {
+          float: left;
+        }
+
+        .box {
+          background:lightblue;
+          padding:1rem;
+          margin:2rem;
+          text-align: center;
+          border-radius: 0.25rem;
+          color: #fff;
+          border-color: #333;
+          width: 100px;
+          transition: all 3s;
+        }
+
+        #linear {
+          transition-timing-function: linear;
+        }
+
+        #ease {
+          transition-timing-function: ease;
+        }
+
+        #ease-in {
+          transition-timing-function: ease-in;
+        }
+
+        #ease-out {
+          transition-timing-function: ease-out;
+        }
+
+        #ease-in-out {
+          transition-timing-function: ease-in-out;
+        }
+
+        .box:hover {
+          background: orange;
+          transform: translate(900px,0);
+        }
+
+
+
+      </style>
+  </head>
+
+  <body>
+
+    <h1>Beast from the East</h1>
+
+    <p>
+      "It is important to point out that we are not expecting anything on the scale of the last two spells of <b>unusually cold weather</b> which brought significant and disruptive snowfall," said chief meteorologist Frank Saunders.
+    </p>
+
+    <br>
+
+    <h2>What is a polar vortex?</h2>
+    <p><img class="float" src="https://scied.ucar.edu/sites/default/files/images/blog/polar_vortex_wobble_0.jpg" height="200px" width="300px">A polar vortex is a mass of desperately cold air that sits above the Earth’s north and south poles. This dense, cold air is controlled by a large pocket of low pressure, which rotates in an anti-clockwise direction at the North Pole and clockwise at the South Pole. The strength of a polar vortex varies from year to year. When it is strong, the vortex is concentrated over the Arctic or Antarctic area. But when it is weak which is more frequent – it can split into two or more freezing vortices. The phenomenon associated with wintry weather is known as a Sudden Stratospheric Warming. These cover a larger area and can move south to Canada, the USA and Europe, increasing the risk of air temperatures decreasing to potentially dangerous levels.
+    </p>
+
+    <br><br>
+    <div class="box" id="linear">LINEAR</div>
+    <div class="box" id="ease">EASE</div>
+    <div class="box" id="ease-in">EASE-IN</div>
+    <div class="box" id="ease-out">EASE-OUT</div>
+    <div class="box" id="ease-in-out">EASE-IN-OUT</div>
+
+  </body>
+</html>
