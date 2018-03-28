@@ -50,12 +50,27 @@
         }
 
         #ease-in-out {
-          transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out ;
         }
 
         .box:hover {
           background: orange;
           transform: translate(900px,0);
+        }
+
+        img {
+          width: 200px;
+          margin-top: 2rem;
+          margin-left: 5rem;
+          margin-right: 5rem;
+          transition: all 3s;
+        }
+        img:hover {
+          transform: rotate(360deg);
+        }
+
+        .ball {
+          transition-timing-function: cubic-bezier(0.3, 0.2, 0.5, 0.8);
         }
 
 
@@ -70,14 +85,14 @@
     <p>
       "It is important to point out that we are not expecting anything on the scale of the last two spells of <b>unusually cold weather</b> which brought significant and disruptive snowfall," said chief meteorologist Frank Saunders.
     </p>
-
     <br>
 
-    <h2>What is a polar vortex?</h2>
-    <p><img class="float" src="https://scied.ucar.edu/sites/default/files/images/blog/polar_vortex_wobble_0.jpg" height="200px" width="300px">A polar vortex is a mass of desperately cold air that sits above the Earth’s north and south poles. This dense, cold air is controlled by a large pocket of low pressure, which rotates in an anti-clockwise direction at the North Pole and clockwise at the South Pole. The strength of a polar vortex varies from year to year. When it is strong, the vortex is concentrated over the Arctic or Antarctic area. But when it is weak which is more frequent – it can split into two or more freezing vortices. The phenomenon associated with wintry weather is known as a Sudden Stratospheric Warming. These cover a larger area and can move south to Canada, the USA and Europe, increasing the risk of air temperatures decreasing to potentially dangerous levels.
-    </p>
+    <div class="ball">
+      <h6>Hover over me</h6>
+      <img src="ball.jpg">
+    </div>
 
-    <br><br>
+    <br>
     <div class="box" id="linear">LINEAR</div>
     <div class="box" id="ease">EASE</div>
     <div class="box" id="ease-in">EASE-IN</div>
