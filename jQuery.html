@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <title>JQuery - Adding JQuery to your pages</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <style>
+            .box, .box2 {
+                text-align: center;
+                font-size: 42px;
+                background: yellow;
+                border: solid 2px #000;
+            }
+            
+            .box2 {
+                display: none;
+                padding: 30px;
+            }
+        </style>
+        
+        <script>
+            $(document).ready(function() {
+                $("button").click(function() {
+                   $(".heading1").hide(); 
+                });
+                
+                $(".box").click(function() {
+                    $(".box2").slideDown("slow"); 
+                });
+            });
+        </script>
+        
+    </head>
+    
+    <body>
+        <div>
+            <h1 class="heading1">Gohool is using JQuery</h1>
+            <button>Hide heading 1</button>
+            
+            <h2>Jquery is cool</h2>
+            <p>The Google Hosted Libraries is a stable, reliable, high-speed, globally available content distribution network for the most popular, open-source JavaScript libraries. Google works directly with the key stakeholders for each library effort and accepts the latest versions as they are released.</p>
+            
+            <div class="box">Click on the box to slide down</div>
+            <img class="box2" src="http://www.real-fix.com/wp-content/uploads/2017/04/SWNS_MONKEY_SURPRISE_01-1024x768.jpg">
+            
+        </div>
+    </body>
+</html>

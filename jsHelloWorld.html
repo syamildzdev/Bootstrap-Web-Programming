@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>JS - Hello World</title>
+    </head>
+    
+    <body>
+    
+        <script src="test.js">
+            
+        </script>
+        
+        <form>
+            <input type="button" value="What is your name?" onmouseover=whatisyourname()>
+        </form>
+        
+        <script>
+            // Global variables
+            var tennisPlayer = "Roger Federer";
+            
+            function whatisyourname() {
+                alert('Your name is Syamil');
+            }
+            
+            function printMessage(message) {
+                alert(message);
+            }
+            
+            function printTennis() {
+                document.write(tennisPlayer + " is a tennis Champ! <br/>");
+            }
+            
+            printTennis();
+            
+            for(a=0; a<10; a++){
+                document.write(a + "<br>")
+            }
+            
+            var myVariable = "String";
+            
+            document.write(myVariable.big() + "<br>");
+            document.write(myVariable.bold() + "<br>");
+            document.write(myVariable.fontcolor("red") + "<br>");
+            document.write(myVariable.fontsize("50px") + "<br>");
+            document.write(myVariable.italics() + "<br>");
+            document.write(myVariable.toUpperCase() + "<br>");
+            
+        </script>
+        
+    </body>
+    
+</html>
