@@ -1,0 +1,44 @@
+
+
+.bg-main {
+    background: url('pjazza-italian-restaurant-background.jpg'); 
+    background-size: cover;
+}
+
+.body {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Pacifico', cursive;
+    color: #05af2c;
+}
+
+.navbar {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color: transparent;
+}
+
+.nav-link {
+    color: #fff!important;
+    padding-left: 2.2rem!important;
+}
+
+.contact-primary-button {
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #05af2c;
+    margin-left: 20px!important;
+}
+
+.contact-primary-button:hover {
+    background: gold;
+    border: 2px solid #05af2c;
+}
+
+.jumbotron {
+    background: transparent;
+    color: #fff;
+    padding: 5rem;
+}

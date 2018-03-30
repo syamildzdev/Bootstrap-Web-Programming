@@ -16,16 +16,55 @@
                 display: none;
                 padding: 30px;
             }
+            
+            .div1 {
+                height: 40px;
+                width: 40px;
+                margin: 20px;
+                background: red;
+                display: none;
+            }
+            
+            .div2 {
+                height: 40px;
+                width: 40px;
+                margin: 20px;
+                background: yellow;
+                display: none;
+            }
+            
+            .div3 {
+                height: 40px;
+                width: 40px;
+                margin: 20px;
+                background: blue;
+                display: none;
+            }
         </style>
         
         <script>
             $(document).ready(function() {
-                $("button").click(function() {
-                   $(".heading1").hide(); 
+                $("#btnHeader").click(function() {
+                    $(".heading1").hide(); 
                 });
                 
                 $(".box").click(function() {
                     $(".box2").slideDown("slow"); 
+                });
+                $(".btnFade").click(function() {
+                    $(".div1").fadeIn(); 
+                    $(".div2").fadeIn("slow");
+                    $(".div3").fadeIn("3000");
+                });
+                $("#hide").click(function() { $(this).hide(); });
+                
+                /*$("#mouseaway").mouseleave(function() {
+                    alert("Warning! You're getting away from the paragraph");
+                });
+                */
+                
+                $(".chainEvent").click(function() {
+                    $("#chainEventEffects").css("color", "blue").slideUp(2000).slideDown(2000);
                 });
             });
         </script>
@@ -35,14 +74,28 @@
     <body>
         <div>
             <h1 class="heading1">Gohool is using JQuery</h1>
-            <button>Hide heading 1</button>
+            <button id="btnHeader">Hide heading 1</button>
             
             <h2>Jquery is cool</h2>
             <p>The Google Hosted Libraries is a stable, reliable, high-speed, globally available content distribution network for the most popular, open-source JavaScript libraries. Google works directly with the key stakeholders for each library effort and accepts the latest versions as they are released.</p>
             
+            <p>Fade in effects</p>
+            
+            <button class="btnFade">Click to view FadeIn effect!</button>
+            <div class="div1"></div>
+            <div class="div2"></div>
+            <div class="div3"></div>
+            
+            <p id="hide">Click here to hide this paragraph</p>
+            
+            <p id="chainEventEffects">C'est une source anonyme de Vulture et un acteur du film Solo : A Star Wars Story qui fait aujourd’hui plusieurs révélations sur le tournage de l’oeuvre. Ses propos, très intéressants, nous en apprennent plus sur l’exigence phénoménale attendue sur ce type de production. Exigence à laquelle, visiblement, tout le monde n’était pas préparé.</p>
+            <button class="chainEvent">Click for jquery chain events</button>
+            <!--
+            <p id="mouseaway">Place your cursor here</p>
+            
             <div class="box">Click on the box to slide down</div>
             <img class="box2" src="http://www.real-fix.com/wp-content/uploads/2017/04/SWNS_MONKEY_SURPRISE_01-1024x768.jpg">
-            
+            -->
         </div>
     </body>
 </html>
