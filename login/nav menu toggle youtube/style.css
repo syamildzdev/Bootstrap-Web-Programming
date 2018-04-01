@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    height: 100%;
+}
+
+/* top bar */
+.top-bar {
+    height: 70px;
+    width: 100%;
+    background-color: #222;
+    position: fixed;
+    top: 0;
+}
+
+.topbar logo {
+    
+}

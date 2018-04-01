@@ -1,5 +1,5 @@
 $(document).ready(function() {
-   $(".btnTest").onclick(function() {
-      $("#login-div").slideUp("slow");  
+   $('button#btnSubmit').click(function() {
+    $('.dashboard').toggleClass('dashboard-view');
    }); 
 });
