@@ -1,0 +1,108 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Josefin Sans', sans-serif;
+}
+.header-background {
+	background: url('background.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+.bg-faded {
+	background-color: transparent;
+}
+.navbar-light .navbar-nav .nav-link {
+	color: #fff!important;
+	padding: 1.5rem;
+}
+.navbar-light .navbar-brand, .navbar-light .navbar-toggler {
+	color: #fff;
+	font-size: 2rem;
+	font-weight: 600;
+	letter-spacing: 4px;
+}
+.jumbotron {
+	background: transparent;
+	color: #fff;
+	padding-right: 0;
+	padding-left: 0;
+}
+.btn-lg {
+	padding: .75rem 1.5rem;
+	font-size: 1.25rem;
+	border-radius: .3rem;
+	margin-top: 2rem;
+	margin-right: 1.5rem;
+}
+.about {
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+}
+.about-desc {
+	padding: 0 20%;
+}
+.about-desc h1 {
+	margin-bottom: 2rem;
+}
+.about-features-icon-left {
+	float: right;
+	margin-top: 1.5rem;
+	min-height: 6rem;
+}
+.about-features-details-left {
+	text-align: left;
+}
+.about-features-icon-right {
+	float: left;
+	margin-top: 1.5rem;
+	min-height: 6rem;
+}
+.about-features-details-right {
+	text-align: right;
+}
+.about-features {
+	margin-top: 3.5rem;
+}
+.fa-4 {
+	font-size: 3rem!important;
+}
+.download {
+	color: white;
+}
+.parallax-background {
+	background: url('parallax%20background.jpg');
+	background-size: cover;
+}
+.overlay {
+	background: rgba(51, 51, 51, 0.71);
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+}
+.contact-us {
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+}
+.contact-us h1 {
+	margin-bottom: 2rem;
+}
+.contact-us p {
+	padding: 0 20%;
+}
+.form-inline {
+	margin-top: 2rem;
+}
+.form-control {
+	padding: 1rem;
+	margin: 1rem;
+	border: 1px solid #333;
+}
+.footer {
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+	background: #333;
+	color: #fff;
+}
+.wow {
+	-webkit-animation-delay: 0.4s;
+}

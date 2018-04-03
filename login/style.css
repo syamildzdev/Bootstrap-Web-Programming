@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.login {
+    
+}
+
+.form-control {
+    display: block;
+    width: 25%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    margin: auto;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.login-form {
+    margin-top: 8rem;
+}
+
+.dashboard {
+    position: fixed;
+    right: 0; 
+    transform: translateX(100%);
+    
+}
+
+.dashboard-view {
+    
+}
