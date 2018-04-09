@@ -4,7 +4,7 @@ body {
 }
 
 .login {
-    
+
 }
 
 .form-control {
@@ -28,11 +28,11 @@ body {
 
 .dashboard {
     position: fixed;
-    right: 0; 
+    right: 0;
     top: auto;
     width: 100%;
     transform: translateX(100%);
-    transition: transform 3s ease-in-out:
+    transition: transform 3s ease-in-out;
 }
 
 .dashboard-view {
