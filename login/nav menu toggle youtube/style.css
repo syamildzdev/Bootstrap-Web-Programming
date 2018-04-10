@@ -35,6 +35,7 @@ body {
     font-size: 27px;
 }
 
+<<<<<<< HEAD
 .top-bar .menu .fa-ellipsis-v {
     color: #fff!important;
 }
@@ -48,6 +49,17 @@ body {
     height: calc(100vh - 70px);
     background-color: #333;
     transform: translateX(-100%);
+=======
+/* nav */
+.nav {
+    position: fixed;
+    right: 0;
+    top: 70px;
+    width: 250px;
+    height: calc(100vh - 70px);
+    background-color: #333;
+    transform: translateX(100%);
+>>>>>>> 0e8f126c2b69961c7b3c30f53ac779059cbe714a
     transition: transform .5s ease-in-out;
 }
 
