@@ -15,19 +15,21 @@
 </head>
 <body>
     
-<div id="map" style="position:absolute; width:49%; height:100%; background:grey" ></div>
-<div id="panel" style="position:absolute; width:49%; left:51%; height:100%; background:inherit" ></div>
+<div id="map" style="position:absolute; width:100%; height:100%; background:grey" ></div>
+<!--<div id="panel" style="position:absolute; width:49%; left:51%; height:100%; background:inherit" ></div>-->
     <div><button id="move" style="position: relative; top: 400px; left: 1000px ">Move</button></div>
 
 <script type="text/javascript" charset="UTF-8" >
-
+    var position = [3.069609,101.503761];
+    var latlng = new H.geo.Point(position[0], position[1]);
+    
 /**
  * Boilerplate map initialization code starts below:
  */
     
 // set up containers for the map  + panel
-var mapContainer = document.getElementById('map'),
-routeInstructionsContainer = document.getElementById('panel');
+var mapContainer = document.getElementById('map');//,
+//routeInstructionsContainer = document.getElementById('panel');
 
 //Step 1: initialize communication with the platform
 var platform = new H.service.Platform({
@@ -67,17 +69,10 @@ Number.prototype.toMMSS = function () {
 // Now use the map as required...
 calculateRouteFromAtoB (platform);
 
-  
-    
+   $(document).getElementById("move").onClink(function(){
+       move.top += 20px;
+   }); 
 </script>
-    
-    
-    
-    <script>
-        marker.setPosition();
-        //moveMarker;
-        var pos = 0;
-        document.getElementById("move").addEventListener("click", moveMarker()});
-    </script>
+
 </body>
 </html>

@@ -5,7 +5,7 @@
  *                                         application
  * @param {H.mapevents.Behavior} behavior  Behavior implements
  *                                         default interactions for pan/zoom
- */
+ 
 function addDraggableMarker(map, behavior){
 
   var marker = new H.map.Marker({lat:3.069609, lng:101.503761});
@@ -88,9 +88,9 @@ function onSuccess(result) {
   addRouteShapeToMap(route);
   addManueversToMap(route);
 
-  addWaypointsToPanel(route.waypoint);
-  addManueversToPanel(route);
-  addSummaryToPanel(route.summary);
+  //addWaypointsToPanel(route.waypoint);
+  //addManueversToPanel(route);
+  //addSummaryToPanel(route.summary);
   // ... etc.
     getManeuver(route);
     
@@ -190,10 +190,13 @@ function addManueversToMap(route){
   }
 
   group.addEventListener('tap', function (evt) {
-    map.setCenter(evt.target.getPosition());
+    //map.setCenter(evt.target.getPosition());
+      
+      transition(evt.target.getPosition()); 
     openBubble(
        evt.target.getPosition(), evt.target.instruction);
   }, false);
+    
 
   // Add the maneuvers group to the map
   map.addObject(group);
@@ -204,7 +207,7 @@ function addManueversToMap(route){
 /**
  * Creates a series of H.map.Marker points from the route and adds them to the map.
  * @param {Object} route  A route as received from the H.service.RoutingService
- */
+ 
 function addWaypointsToPanel(waypoints){
 
   var nodeH3 = document.createElement('h3'),
@@ -227,7 +230,7 @@ function addWaypointsToPanel(waypoints){
 /**
  * Creates a series of H.map.Marker points from the route and adds them to the map.
  * @param {Object} route  A route as received from the H.service.RoutingService
- */
+ 
 function addSummaryToPanel(summary){
   var summaryDiv = document.createElement('div'),
    content = '';
@@ -247,7 +250,7 @@ function addSummaryToPanel(summary){
 /**
  * Creates a series of H.map.Marker points from the route and adds them to the map.
  * @param {Object} route  A route as received from the H.service.RoutingService
- */
+ 
 function addManueversToPanel(route){
 
   var nodeOL = document.createElement('ol'),
@@ -281,30 +284,30 @@ function addManueversToPanel(route){
   routeInstructionsContainer.appendChild(nodeOL);
 }
 
-function moveMarker(route){
-    var count = 0;
+*/
 
-    var svgMarkup = '<svg width="18" height="18" ' +
-    'xmlns="http://www.w3.org/2000/svg">' +
-    '<circle cx="8" cy="8" r="8" ' +
-      'fill="#1b468d" stroke="white" stroke-width="1"  />' +
-    '</svg>',
-    dotIcon = new H.map.Icon(svgMarkup, {anchor: {x:8, y:8}}),
-    group = new  H.map.Group(),
-    i,
-    j;
-    
-window.setInterval(function(){
-        count = (count + 1) % 200;
-        var icons = lineString.get('icons');
-        icons[0].offset = (count / 2) + '%';
-        lineString.set('icons', icons);
-    }, 50);
-    
-  // And zoom to its bounding rectangle
-  map.setViewBounds(polyline.getBounds(), true);
-    
-    lineString.set();
+var numDeltas = 100;
+var delay = 10; // milliseconds
+var i = 0;
+var deltaLat;
+var deltaLng; 
+
+function transition(pos) {
+    i = 0;
+    deltaLat = (pos.latitude - position[0]/numDeltas);
+    deltaLng = (pos.longitude - position[1]/numDeltas);
+    moveMarker();
+}
+
+function moveMarker() {
+    position[0] += deltaLat;
+    position[1] += deltaLng;
+    var latlng = new H.geo.Point(position[0], position[1]); 
+    marker.setPosition(latlng);
+    if(i!=numDeltas) {
+        i++;
+    }
+    setTimeout(moveMarker, delay);
 }
 
 function getManeuver(route) {
@@ -320,6 +323,7 @@ function getManeuver(route) {
     return maneuverPosition;
 }
 
+/*
 function moveMarker(marker) {
     var maneuverPosition = getManeuver(route);
     var count = 0;
@@ -330,3 +334,5 @@ function moveMarker(marker) {
         i += 1;
     })
 }
+
+*/
