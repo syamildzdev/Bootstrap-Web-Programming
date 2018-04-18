@@ -61,7 +61,7 @@ function calculateRouteFromAtoB (platform) {
       representation: 'display',
       routeattributes : 'waypoints,summary,shape,legs',
       maneuverattributes: 'direction,action',
-      waypoint0: '3.146642,101.695845', // KLCC
+      waypoint0: latlng, // KLCC
       waypoint1: '3.069609,101.503761'  // UITM SHAH ALAM
     };
 
@@ -191,10 +191,12 @@ function addManueversToMap(route){
 
   group.addEventListener('tap', function (evt) {
     //map.setCenter(evt.target.getPosition());
-      
-      transition(evt.target.getPosition()); 
-    openBubble(
-       evt.target.getPosition(), evt.target.instruction);
+      console.log(evt.target.getPosition());
+    transitionToMarker(evt.target.getPosition());
+    /*openBubble(
+       evt.target.getPosition(), evt.target.instruction);*/
+       var marker = new H.map.Marker({lat:3.069609, lng:101.503761});
+      map.addObject(marker);
   }, false);
     
 
@@ -286,30 +288,6 @@ function addManueversToPanel(route){
 
 */
 
-var numDeltas = 100;
-var delay = 10; // milliseconds
-var i = 0;
-var deltaLat;
-var deltaLng; 
-
-function transition(pos) {
-    i = 0;
-    deltaLat = (pos.latitude - position[0]/numDeltas);
-    deltaLng = (pos.longitude - position[1]/numDeltas);
-    moveMarker();
-}
-
-function moveMarker() {
-    position[0] += deltaLat;
-    position[1] += deltaLng;
-    var latlng = new H.geo.Point(position[0], position[1]); 
-    marker.setPosition(latlng);
-    if(i!=numDeltas) {
-        i++;
-    }
-    setTimeout(moveMarker, delay);
-}
-
 function getManeuver(route) {
     var maneuverPosition = [];
       // Add a marker for each maneuver
@@ -321,6 +299,26 @@ function getManeuver(route) {
         }
       }
     return maneuverPosition;
+}
+
+
+function transitionToMarker(pos) {
+    i = 0;
+    deltaLat = (pos.lat - position[0])/numDeltas;
+    deltaLng = (pos.lng - position[1])/numDeltas;
+    
+    moveToMarker();
+}
+
+function moveToMarker() {
+    position[0] += deltaLat;
+    position[1] += deltaLng;
+    
+    marker.setGeometry({lat: position[0], lng: position[1]});
+    if(i!=numDeltas) {
+        i++;
+        setTimeout(moveMarker, delay);
+    }
 }
 
 /*
