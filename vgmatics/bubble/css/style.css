@@ -1,4 +1,4 @@
-.ib-body {
+.custom-ib-body {
     background: #fff!important;
     color: #000!important;
     position: absolute;
@@ -7,4 +7,35 @@
     border-radius: .2em;
     margin-right: -1em;
     right: 0;
+}
+
+.info_box {
+    position: fixed;
+    display: none;
+    width: 200px;
+    height: 170px!important;
+    top: 19%;
+    left: 43%;
+    background-color: aliceblue;
+    cursor: pointer;
+}
+
+.info_box.round2 {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+table {
+    border-color: black;
+    text-align: left!important;
+    font-size: 10px;
+}
+
+table, td {
+    text-align: left!important;
+}
+
+td {
+    padding-left: 10px;
+    font-weight: bold;
 }
