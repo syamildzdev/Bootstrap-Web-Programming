@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="stylesheet" type="text/css" href="https://js.cit.api.here.com/v3/3.0/mapsjs-ui.css" />
+    <script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+    
+    <!-- Custom script -->
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/websocket.js"></script>
+    <!-- Custom CSS -->
+    <link type="text/css" href="style.css" />
+</head>
+<body>
+    
+<div id="map" style="position:absolute; width:100%; height:100%; background:grey;" ></div>
+<!--<div id="panel" style="position:absolute; width:49%; left:51%; height:100%; background:inherit" ></div>
+    <div><button id="move" style="position: relative; top: 400px; left: 1000px ">Move</button><a href="javascript:WebSocketTest()">Run WebSocket</a></div>-->
+
+<script type="text/javascript" charset="UTF-8" >
+    
+    // initial position
+    var position = [3.069609,101.503761]; 
+    
+    // variables for datas received from websocket
+    var received_msg;
+    var wsData;
+    var gpsImei;
+    var gpsLat;
+    var gpsLng; 
+    
+    /**
+     * Boilerplate map initialization code starts below:
+     */
+
+    // set up containers for the map  + panel
+    var mapContainer = document.getElementById('map');//,
+    //routeInstructionsContainer = document.getElementById('panel');
+
+    //Step 1: initialize communication with the platform
+    var platform = new H.service.Platform({
+      app_id: 'HrGIhCBJKS0EqgHj3jnd',
+      app_code: '4rOSFke1d93R8cRq027cyQ',
+      useCIT: true,
+      useHTTPS: true
+    });
+    var defaultLayers = platform.createDefaultLayers();
+
+    //Step 2: initialize a map - this map is centered over Kual Lumpur
+    var map = new H.Map(mapContainer,
+      defaultLayers.normal.map,{
+      center: {lat:3.25, lng:101.73},
+      zoom: 12
+    });
+
+    //Step 3: make the map interactive
+    // MapEvents enables the event system
+    // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+    // Step 4: Create the default UI:
+    var ui = H.ui.UI.createDefault(map, defaultLayers, 'en-US');
+
+    // Marker
+    var marker = new H.map.Marker({lat:position[0], lng:position[1]});
+    map.addObject(marker);
+    
+
+    Number.prototype.toMMSS = function () {
+      return  Math.floor(this / 60)  +' minutes '+ (this % 60)  + ' seconds.';
+    }
+
+    // Now use the map as required...
+    calculateRouteFromAtoB (platform);    
+    
+    var numDeltas = 100;
+    var delay = 10; // milliseconds
+    var i = 0;
+    var deltaLat;
+    var deltaLng; 
+    
+    // direct transition to target position  
+    // P/S: please look inside js/functions.js for transition to marker function
+    function transition(targetLat, targetLng) {
+        i = 0;
+        deltaLat = (targetLat - position[0])/numDeltas;
+        deltaLng = (targetLng - position[1])/numDeltas;
+        moveMarker();
+    }
+    
+    function moveMarker() {
+        position[0] += deltaLat;
+        position[1] += deltaLng;
+        marker.setGeometry({lat: position[0], lng: position[1]});
+        if(i!=numDeltas) {
+            i++;
+            setTimeout(moveMarker, delay);
+        }
+    }
+    
+    // initialize websocket
+    WebSocketInit();
+    
+</script>
+
+</body>
+</html>
