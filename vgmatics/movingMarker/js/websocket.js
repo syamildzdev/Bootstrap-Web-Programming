@@ -9,11 +9,19 @@ function WebSocketInit() {
 
     ws.onmessage = function (evt) { 
         var received_msg = evt.data;
-        wsData = JSON.parse(received_msg);
-        gpsImei = parseFloat(wsData.dev_IMEI);
-        gpsLat = parseFloat(wsData.veh_lat_coordinate);    
-        gpsLng = parseFloat(wsData.veh_long_coordinate);
-        transition(gpsLat, gpsLng); // move marker to current vehicle's position      
+        console.log("type before parse :" + typeof received_msg); // result : string
+        
+            console.log(received_msg);
+            wsData = JSON.parse(received_msg); // this should be fine because we parse string into object
+            console.log("type after parse :" + typeof wsData);
+            gpsImei = parseFloat(wsData.dev_IMEI);
+            gpsLat = parseFloat(wsData.veh_lat_coordinate);    
+            gpsLng = parseFloat(wsData.veh_long_coordinate);
+            console.log(gpsLat);
+            console.log(gpsLng);
+            transition(gpsLat, gpsLng); // move marker to current vehicle's position     
+        
+             
     };
 
     ws.onclose = function() { 

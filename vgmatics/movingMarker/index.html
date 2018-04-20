@@ -10,7 +10,6 @@
     <script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
     
     <!-- Custom script -->
-    <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript" src="js/websocket.js"></script>
     <!-- Custom CSS -->
     <link type="text/css" href="style.css" />
@@ -53,8 +52,8 @@
     //Step 2: initialize a map - this map is centered over Kual Lumpur
     var map = new H.Map(mapContainer,
       defaultLayers.normal.map,{
-      center: {lat:3.25, lng:101.73},
-      zoom: 12
+      center: {lat:position[0], lng:position[1]},
+      zoom: 20
     });
 
     //Step 3: make the map interactive
@@ -68,14 +67,6 @@
     // Marker
     var marker = new H.map.Marker({lat:position[0], lng:position[1]});
     map.addObject(marker);
-    
-
-    Number.prototype.toMMSS = function () {
-      return  Math.floor(this / 60)  +' minutes '+ (this % 60)  + ' seconds.';
-    }
-
-    // Now use the map as required...
-    calculateRouteFromAtoB (platform);    
     
     var numDeltas = 100;
     var delay = 10; // milliseconds
@@ -96,6 +87,7 @@
         position[0] += deltaLat;
         position[1] += deltaLng;
         marker.setGeometry({lat: position[0], lng: position[1]});
+        map.setCenter({lat: position[0], lng: position[1]});
         if(i!=numDeltas) {
             i++;
             setTimeout(moveMarker, delay);
