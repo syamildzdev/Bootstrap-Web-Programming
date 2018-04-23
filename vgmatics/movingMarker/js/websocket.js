@@ -19,7 +19,13 @@ function WebSocketInit() {
             gpsLng = parseFloat(wsData.veh_long_coordinate);
             console.log(gpsLat);
             console.log(gpsLng);
+<<<<<<< HEAD
             transition(gpsLat, gpsLng); // move marker to current vehicle's position                  
+=======
+            transition(gpsLat, gpsLng); // move marker to current vehicle's position     
+        
+             
+>>>>>>> c856e7576ff3799232d2701227a8e8ada19b41be
     };
 
     ws.onclose = function() { 
